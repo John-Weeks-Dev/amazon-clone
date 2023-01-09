@@ -1,66 +1,91 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Amazon Clone (amazon-clone)
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+### Tutorial series on how to build this
 
-## About Laravel
+If you'd like a step by step guide on how to build this just **CLICK THE IMAGE BELOW**
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+[![GO TO JOHN WEEKS DEV TUTORIAL VIDEOS](https://user-images.githubusercontent.com/108229029/211268860-ace40efd-f688-48dd-9474-925469db95af.png)](https://www.youtube.com/watch?v=KE5sQiHRZQg)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Come and check out my YOUTUBE channel for lots more tutorials -> https://www.youtube.com/@johnweeksdev
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+**LIKE**, **SUBSCRIBE**, and **SMASH THE NOTIFICATION BELL**!!!
 
-## Learning Laravel
+## App Setup
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+```
+git clone https://github.com/John-Weeks-Dev/amazon-clone.git
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+composer install 
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+cp .env.example .env 
 
-## Laravel Sponsors
+php artisan cache:clear 
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+composer dump-autoload 
 
-### Premium Partners
+php artisan key:generate
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+composer require laravel/breeze vue --dev
 
-## Contributing
+php artisan breeze:install vue --inertia
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+php artisan serve
+```
 
-## Code of Conduct
+Create the DB
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=amazon_clone
+DB_USERNAME=root
+DB_PASSWORD=
+```
+Now migrate your DB
+```
+php artisan migrate
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+php artisan db:seed
+```
 
-## Security Vulnerabilities
+Now go to https://stripe.com/en-gb-us
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Create a public and private KEY.
 
-## License
+Add your new PRIVATE API KEY to **CheckoutController.php**
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+![Screenshot 2022-12-19 at 14 33 10](https://user-images.githubusercontent.com/108229029/211271467-926303ac-9e21-4557-bd2e-df781697283f.png)
+
+And **Checkout**
+
+![Screenshot 2022-12-19 at 14 33 32](https://user-images.githubusercontent.com/108229029/211272867-c81d401f-9e37-44e3-bc82-df8407b30247.png)
+
+Connect Mailtrap
+
+Add the details to **.env**
+
+Now run this command to start the project 
+```
+npm i
+
+npm run dev
+```
+
+You should be good to go!
+
+# Application Images
+![Screenshot 2023-01-08 at 22 13 46](https://user-images.githubusercontent.com/108229029/211273079-e792667b-a16f-4ea3-a726-4be3fbe133cc.png)
+![Screenshot 2023-01-08 at 22 14 08](https://user-images.githubusercontent.com/108229029/211274170-a74fe46b-5fe3-4654-b675-22f9d7579e38.png)
+![Screenshot 2023-01-08 at 22 14 24](https://user-images.githubusercontent.com/108229029/211274612-83fe1ccc-12c9-4934-a411-8ba6c5a66eeb.png)
+![Screenshot 2023-01-08 at 22 14 51](https://user-images.githubusercontent.com/108229029/211274617-ae2d3138-f116-494f-b625-18f9e27d5bd8.png)
+![Screenshot 2023-01-08 at 22 15 42](https://user-images.githubusercontent.com/108229029/211274628-0bd1e5f9-7fbb-41f9-86bf-4860e723a7e4.png)
+![Screenshot 2023-01-08 at 22 16 01](https://user-images.githubusercontent.com/108229029/211274638-9d3461a8-617d-4797-868d-c1ed285c57d7.png)
+![Screenshot 2023-01-08 at 22 16 41](https://user-images.githubusercontent.com/108229029/211274648-9d55d0a7-ef43-49fb-b332-8b43ed6f0334.png)
+![Screenshot 2023-01-08 at 22 16 54](https://user-images.githubusercontent.com/108229029/211274652-1da2b0c5-8033-4f40-95d8-ecbbb7925305.png)
+![Screenshot 2023-01-08 at 22 17 13](https://user-images.githubusercontent.com/108229029/211274658-c1a46bde-f438-4467-848b-50bfbd607ca0.png)
+![Screenshot 2023-01-08 at 22 17 21](https://user-images.githubusercontent.com/108229029/211274662-665e1c76-a5fa-4e13-9bbc-6de831a712bd.png)
+![Screenshot 2023-01-08 at 22 18 07](https://user-images.githubusercontent.com/108229029/211274663-4fe0ebd2-d553-47db-bdca-e8ca5974f7b0.png)
+![Screenshot 2023-01-08 at 22 18 36](https://user-images.githubusercontent.com/108229029/211274673-736a05f2-c236-4e02-8840-8eccfaa80658.png)
+![Screenshot 2023-01-08 at 22 19 45](https://user-images.githubusercontent.com/108229029/211274684-2f2c1af1-17ca-465f-892a-e5f1f24e2284.png)
+![Screenshot 2023-01-08 at 22 20 53](https://user-images.githubusercontent.com/108229029/211274691-cd998330-ed21-4da8-a53f-6cf3dca8c38e.png)
+
